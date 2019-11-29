@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import * as constants from './ActionTypes';
 
 class PostForm extends Component {
     handleSubmit = (e) => {
@@ -12,7 +13,7 @@ class PostForm extends Component {
             message
         }
         this.props.dispatch({
-            type: 'ADD_POST',
+            type: constants.ADD_POST,
             data
         });
         this.getTitle.value = '';

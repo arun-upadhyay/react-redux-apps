@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
+import * as constants from './ActionTypes';
 
 class EditComponent extends Component {
     handleEdit = (e) => {
@@ -11,7 +11,7 @@ class EditComponent extends Component {
             newTitle,
             newMessage
         }
-        this.props.dispatch({type: 'UPDATE', id: this.props.post.id, data: data})
+        this.props.dispatch({type: constants.UPDATE, id: this.props.post.id, data: data})
     }
 
     render() {

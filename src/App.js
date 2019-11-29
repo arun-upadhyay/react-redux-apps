@@ -5,10 +5,10 @@ import AllPost from "./AllPost";
 function App() {
     return (
         <div className="App">
-            <p>
+            <div>
                 <PostForm/>
                 <AllPost/>
-            </p>
+            </div>
         </div>
     );
 }

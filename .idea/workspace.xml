@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="678e6745-7bee-4a7f-a24b-c2ae61782bc8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Constants/ApiConstants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Recipe/RecipeForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ActionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AllPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AllPost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Constants/ApiConstants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PostForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PostReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PostReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +93,7 @@
       <workItem from="1574633809783" duration="17068000" />
       <workItem from="1575065927685" duration="9804000" />
       <workItem from="1576454092961" duration="7720000" />
-      <workItem from="1576931035207" duration="2172000" />
+      <workItem from="1576931035207" duration="20898000" />
     </task>
     <servers />
   </component>
@@ -126,9 +128,10 @@
       <screen x="1920" y="0" width="1280" height="984" />
     </state>
     <state x="2061" y="134" key="SettingsEditor/0.0.1280.680/-1600.0.1600.860/1920.0.1280.984@1920.0.1280.984" timestamp="1576932379621" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1575058874255">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="2223" y="1" width="672" height="982" key="search.everywhere.popup" timestamp="1576985916863">
+      <screen x="1920" y="0" width="1280" height="984" />
     </state>
+    <state x="2223" y="1" width="672" height="982" key="search.everywhere.popup/0.0.1280.680/-1600.0.1600.860/1920.0.1280.984@1920.0.1280.984" timestamp="1576985916863" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1575058874255" />
   </component>
 </project>

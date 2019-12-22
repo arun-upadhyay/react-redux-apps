@@ -1,9 +1,16 @@
 import * as constants from './ActionTypes';
 
-const postReducer = (state = [], action) => {
+const initialState = {
+    posts: []
+};
+const postReducer = (state = initialState, action) => {
     switch (action.type) {
+        case constants.GET_POST:
+            return {...state, posts: action.data};
         case constants.ADD_POST:
-            return [...state, action.data];
+            console.log(state.posts);
+            console.log(action.data);
+            return {...state, posts: [...state.posts, action.data]};
         case constants.DELETE_POST:
             return state.filter((post) => {
                 return post.id !== action.id

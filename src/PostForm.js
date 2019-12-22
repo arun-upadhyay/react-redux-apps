@@ -5,17 +5,11 @@ import * as constants from './ActionTypes';
 class PostForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
-        const title = this.getTitle.value;
-        const message = this.getMessage.value;
         const data = {
-            id: new Date(),
-            title,
-            message
+            text: this.getTitle.value,
+            description: this.getMessage.value
         }
-        this.props.dispatch({
-            type: constants.ADD_POST,
-            data
-        });
+        this.props.handleSubmit(data);
         this.getTitle.value = '';
         this.getMessage.value = '';
     }

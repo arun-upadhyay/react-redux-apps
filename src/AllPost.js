@@ -1,18 +1,25 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Post from './Post';
-import EditComponent from './EditComponent';
-import {API_URL} from "./Constants/ApiConstants";
+import {getPosts, addPost} from "./ActionTypes";
+import PostForm from "./PostForm";
+
 
 class AllPost extends Component {
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
     render() {
         return (
             <div>
+                <PostForm handleSubmit={this.handleSubmit}></PostForm>
                 <h1>All Posts</h1>
                 {this.props.posts.map((post) => (
-                    <div key={post.id}>
-                        {post.editing ? <EditComponent post={post} key={post.id}/> :
-                            <Post key={post.id} post={post}/>}
+                    <div key={post._id}>
+                        {/*{post.editing ? <EditComponent post={post} key={post._id}/> :*/}
+                        <Post key={post._id} post={post}/>}
                     </div>
                 ))}
             </div>
@@ -20,21 +27,17 @@ class AllPost extends Component {
     }
 
     componentDidMount() {
-        const endpoint = API_URL + "posts";
-        let postData = null;
-        fetch(endpoint)
-            .then(res => res.json())
-            .then(json => {
-                this.props.posts = json;
-            }).catch(err => {
-            console.log(`${err.message} has occurred`)
-        })
+        this.props.getPosts();
+    }
+
+    handleSubmit(postData) {
+        this.props.addPost(postData);
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        posts: state
+        posts: state.posts
     }
 }
-export default connect(mapStateToProps)(AllPost);
+export default connect(mapStateToProps, {getPosts, addPost})(AllPost);

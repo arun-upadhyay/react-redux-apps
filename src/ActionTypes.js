@@ -13,10 +13,17 @@ function handleGetPost(data) {
 
 function handleAddPost(data) {
     return {
-        data,
+        data: data.record,
         type: ADD_POST
     }
+}
 
+function handleDeletePost(data) {
+
+    return {
+        _id: data._id,
+        type: DELETE_POST
+    }
 }
 
 export function getPosts() {
@@ -36,10 +43,24 @@ export function addPost(postData) {
                 "Content-Type": "application/json"
             }),
             body: JSON.stringify(postData)
-        }).then(resp => {
-            dispatch(handleAddPost(postData))
-        }).catch(err => dispatch(err));
+        }).then(res => res.json())
+            .then(data => {
+                dispatch(handleAddPost(data))
+            }).catch(err => dispatch(err));
     };
 }
 
-
+export function deletePost(id) {
+    return dispatch => {
+        return fetch("http://10.0.0.237:3000/posts", {
+            method: "DELETE",
+            headers: new Headers({
+                "Content-Type": "application/json"
+            }),
+            body: JSON.stringify({_id: id})
+        }).then(res => res.json())
+            .then(data => {
+                dispatch(handleDeletePost(data))
+            }).catch(err => dispatch(err));
+    };
+}

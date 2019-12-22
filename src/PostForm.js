@@ -6,7 +6,7 @@ class PostForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const data = {
-            text: this.getTitle.value,
+            title: this.getTitle.value,
             description: this.getMessage.value
         }
         this.props.handleSubmit(data);

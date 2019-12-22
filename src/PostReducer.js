@@ -8,13 +8,12 @@ const postReducer = (state = initialState, action) => {
         case constants.GET_POST:
             return {...state, posts: action.data};
         case constants.ADD_POST:
-            console.log(state.posts);
-            console.log(action.data);
             return {...state, posts: [...state.posts, action.data]};
         case constants.DELETE_POST:
-            return state.filter((post) => {
-                return post.id !== action.id
+            let filterData = state.posts.filter((post) => {
+                return post._id !== action._id
             });
+            return {posts: filterData};
         case constants.EDIT_POST:
             return state.map((post) => {
                 return post.id === action.id ? {...post, editing: !post.editing} : post

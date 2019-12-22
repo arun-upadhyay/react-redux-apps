@@ -12,10 +12,6 @@ class Post extends Component {
                 {/*    onClick={() => this.props.dispatch({type: constants.EDIT_POST, id: this.props.post.id})}>*/}
                 {/*    Edit*/}
                 {/*</button>*/}
-                {/*<button*/}
-                {/*    onClick={() => this.props.dispatch({type: constants.DELETE_POST, id: this.props.post.id})}>*/}
-                {/*    Delete*/}
-                {/*</button>*/}
             </div>
         );
     }

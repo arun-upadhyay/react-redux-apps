@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Post from './Post';
-import {getPosts, addPost} from "./ActionTypes";
+import {getPosts, addPost, deletePost, default as constants} from "./ActionTypes";
 import PostForm from "./PostForm";
 
 
@@ -9,6 +9,11 @@ class AllPost extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.deletePost = this.deletePost.bind(this);
+    }
+
+    deletePost(id) {
+        this.props.deletePost(id);
     }
 
     render() {
@@ -19,7 +24,13 @@ class AllPost extends Component {
                 {this.props.posts.map((post) => (
                     <div key={post._id}>
                         {/*{post.editing ? <EditComponent post={post} key={post._id}/> :*/}
-                        <Post key={post._id} post={post}/>}
+                        <Post key={post._id} post={post}/>
+                        <button
+                            onClick={() => {
+                                this.deletePost(post._id)
+                            }}>
+                            Delete
+                        </button>
                     </div>
                 ))}
             </div>
@@ -40,4 +51,4 @@ const mapStateToProps = (state) => {
         posts: state.posts
     }
 }
-export default connect(mapStateToProps, {getPosts, addPost})(AllPost);
+export default connect(mapStateToProps, {getPosts, addPost, deletePost})(AllPost);

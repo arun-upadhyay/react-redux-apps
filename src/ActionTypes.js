@@ -2,7 +2,7 @@ export const GET_POST = 'GET_POST'
 export const ADD_POST = 'ADD_POST'
 export const DELETE_POST = 'DELETE_POST'
 export const UPDATE = 'UPDATE'
-export const PAGING = 'paging'
+export const PAGING = 'PAGING'
 const URI = "http://10.0.0.237:3000/posts"
 
 function handleGetPost(data) {
@@ -88,22 +88,27 @@ export function updatePost(postData) {
     };
 }
 
-export function movePreviousPage($currentPage) {
-    return dispatch => {
-        dispatch(handlePaging($currentPage))
-    };
-}
-
-
-function handlePaging(data, currentPage) {
+function handlePaging(data) {
     return {
-        currentPage,
-        type: GET_POST
+        data: data,
+        type: PAGING
     }
 }
 
-export function moveNextPage($currentPage) {
+export function handleNextPage(totalPage, currentPage) {
+    currentPage = currentPage + 5;
+
     return dispatch => {
-        dispatch(handlePaging($currentPage))
+        return dispatch(handlePaging({currentPage: currentPage, totalPage: totalPage}));
+    };
+}
+
+export function handlePreviousPage(totalPage, currentPage) {
+    currentPage = currentPage - 5;
+    if (currentPage < 0) {
+        currentPage = 0;
+    }
+    return dispatch => {
+        return dispatch(handlePaging({currentPage: currentPage, totalPage: totalPage}));
     }
 }

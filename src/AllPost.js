@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Post from './Post';
-import {getPosts, addPost, deletePost, updatePost, movePreviousPage, moveNextPage} from "./ActionTypes";
+import {getPosts, addPost, deletePost, updatePost, handleNextPage, handlePreviousPage} from "./ActionTypes";
 import PostForm from "./PostForm";
 import EditComponent from "./EditComponent";
-import Pagination from './Pagination';
+import {Button, ButtonToolbar} from 'react-bootstrap';
 
 
 class AllPost extends Component {
@@ -14,6 +14,8 @@ class AllPost extends Component {
         this.deletePost = this.deletePost.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
         this.editEvent = this.editEvent.bind(this);
+        this.handleNext = this.handleNext.bind(this);
+        this.handlePrevious = this.handlePrevious.bind(this);
         this.state = {
             edit: false,
             formData: {}
@@ -35,7 +37,16 @@ class AllPost extends Component {
         })
     }
 
+    handlePrevious(totalPage, currentPage) {
+        this.props.handlePreviousPage(totalPage, currentPage);
+    }
+
+    handleNext(totalPage, currentPage) {
+        this.props.handleNextPage(totalPage, currentPage);
+    }
+
     render() {
+
         let filteredRecords = [];
         let currentPage = this.props.currentPage;
         let totalPage = this.props.numberOfPages;
@@ -45,19 +56,45 @@ class AllPost extends Component {
             }
         }
 
-        let paginationComponent = <Pagination posts={filteredRecords} currentPage={currentPage}
-                                              numberOfPages={totalPage}
-                                              // movePreviousPage={this.movePreviousPage}
-                                              // moveNextPage={this.moveNextPage}
-        />
-
         let component = (this.state.edit === true) ?
             <EditComponent post={this.state.formData} handleUpdate={this.handleUpdate}/> :
             <PostForm handleSubmit={this.handleSubmit}/>;
         return (
             <div>
+                <div className="jumbotron text-left">
+                    <h1>Simple CRUD Operation using React-JS, Redux and Express API</h1>
+                </div>
                 {component}
-                {paginationComponent}
+                {filteredRecords.map((post) => (
+                    <div key={post._id}>
+                        <Post key={post._id} post={post}/>
+                        <ButtonToolbar>
+                            <Button variant="link"
+                                    onClick={() => {
+                                        this.deletePost(post._id)
+                                    }}>
+                                Delete
+                            </Button>
+                            <Button variant="link"
+                                    onClick={() => {
+                                        this.editEvent(post._id, post.title, post.description)
+                                    }}>
+                                Edit
+                            </Button>
+                        </ButtonToolbar>
+
+                    </div>
+                ))}
+                <br/><br/>
+                <div>
+                    <ButtonToolbar>
+                        <Button variant="secondary  mr-3" href="#"
+                                onClick={() => this.handlePrevious(totalPage, currentPage)}>Previous</Button>
+                        <Button variant="secondary" href="#"
+                                onClick={() => this.handleNext(totalPage, currentPage)}>Next</Button>
+                    </ButtonToolbar>
+
+                </div>
             </div>
         );
     }
@@ -85,9 +122,5 @@ const mapStateToProps = (state) => {
         numberOfPages: state.numberOfPages
     }
 }
-export default connect(mapStateToProps, {
-    getPosts,
-    addPost,
-    deletePost,
-    updatePost
-})(AllPost);
+export default connect(mapStateToProps,
+    {getPosts, addPost, deletePost, updatePost, handleNextPage, handlePreviousPage})(AllPost);

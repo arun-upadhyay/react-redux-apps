@@ -3,7 +3,7 @@ export const ADD_POST = 'ADD_POST'
 export const DELETE_POST = 'DELETE_POST'
 export const EDIT_POST = 'EDIT_POST'
 export const UPDATE = 'UPDATE'
-const URI = "http://localhost:3000/posts"
+const URI = "http://10.0.0.237:3000/posts"
 
 function handleGetPost(data) {
     return {

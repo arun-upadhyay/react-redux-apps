@@ -4,12 +4,7 @@
     <list default="true" id="678e6745-7bee-4a7f-a24b-c2ae61782bc8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ActionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AllPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AllPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PostForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PostReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PostReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Recipe/RecipeForm.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +87,7 @@
       <workItem from="1574633809783" duration="17068000" />
       <workItem from="1575065927685" duration="9804000" />
       <workItem from="1576454092961" duration="7720000" />
-      <workItem from="1576931035207" duration="37180000" />
+      <workItem from="1576931035207" duration="39015000" />
     </task>
     <servers />
   </component>

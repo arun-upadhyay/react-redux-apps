@@ -3,6 +3,7 @@ export const ADD_POST = 'ADD_POST'
 export const DELETE_POST = 'DELETE_POST'
 export const EDIT_POST = 'EDIT_POST'
 export const UPDATE = 'UPDATE'
+const URI = "http://10.0.0.237:3000/posts"
 
 function handleGetPost(data) {
     return {
@@ -26,9 +27,16 @@ function handleDeletePost(data) {
     }
 }
 
+function handleUpdatePost(data, postData) {
+    return {
+        data: postData,
+        type: UPDATE
+    }
+}
+
 export function getPosts() {
     return dispatch => {
-        return fetch("http://10.0.0.237:3000/posts")
+        return fetch(URI)
             .then(res => res.json())
             .then(data => dispatch(handleGetPost(data)))
             .catch(err => dispatch(err));
@@ -37,7 +45,7 @@ export function getPosts() {
 
 export function addPost(postData) {
     return dispatch => {
-        return fetch("http://10.0.0.237:3000/posts", {
+        return fetch(URI, {
             method: "POST",
             headers: new Headers({
                 "Content-Type": "application/json"
@@ -45,14 +53,14 @@ export function addPost(postData) {
             body: JSON.stringify(postData)
         }).then(res => res.json())
             .then(data => {
-                dispatch(handleAddPost(data))
+                dispatch(handleAddPost(data, postData))
             }).catch(err => dispatch(err));
     };
 }
 
 export function deletePost(id) {
     return dispatch => {
-        return fetch("http://10.0.0.237:3000/posts", {
+        return fetch(URI, {
             method: "DELETE",
             headers: new Headers({
                 "Content-Type": "application/json"
@@ -61,6 +69,21 @@ export function deletePost(id) {
         }).then(res => res.json())
             .then(data => {
                 dispatch(handleDeletePost(data))
+            }).catch(err => dispatch(err));
+    };
+}
+
+export function updatePost(postData) {
+    return dispatch => {
+        return fetch(URI, {
+            method: "PUT",
+            headers: new Headers({
+                "Content-Type": "application/json"
+            }),
+            body: JSON.stringify(postData)
+        }).then(res => res.json())
+            .then(data => {
+                dispatch(handleUpdatePost(data, postData))
             }).catch(err => dispatch(err));
     };
 }

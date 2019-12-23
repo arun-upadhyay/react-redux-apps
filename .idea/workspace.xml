@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ActionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AllPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AllPost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PostForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PostReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PostReducer.js" afterDir="false" />
@@ -90,7 +92,7 @@
       <workItem from="1574633809783" duration="17068000" />
       <workItem from="1575065927685" duration="9804000" />
       <workItem from="1576454092961" duration="7720000" />
-      <workItem from="1576931035207" duration="27442000" />
+      <workItem from="1576931035207" duration="37180000" />
     </task>
     <servers />
   </component>
@@ -111,10 +113,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="2234" y="101" key="#ESLint" timestamp="1576457078597">
+    <state x="2234" y="101" key="#ESLint" timestamp="1577041686076">
       <screen x="1920" y="0" width="1280" height="984" />
     </state>
-    <state x="2234" y="101" key="#ESLint/0.0.1280.680/-1600.0.1600.860/1920.0.1280.984@1920.0.1280.984" timestamp="1576457078597" />
+    <state x="2234" y="101" key="#ESLint/0.0.1280.680/-1600.0.1600.860/1920.0.1280.984@1920.0.1280.984" timestamp="1577041686076" />
     <state x="-1208" y="88" key="#ESLint/0.0.1280.680/-1600.0.1600.860@-1600.0.1600.860" timestamp="1575226671834" />
     <state x="2384" y="211" key="FileChooserDialogImpl" timestamp="1576931946214">
       <screen x="1920" y="0" width="1280" height="984" />

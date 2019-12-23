@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as constants from './ActionTypes';
 
 class PostForm extends Component {
     handleSubmit = (e) => {

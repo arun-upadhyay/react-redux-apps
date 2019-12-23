@@ -14,21 +14,20 @@ const postReducer = (state = initialState, action) => {
                 return post._id !== action._id
             });
             return {posts: filterData};
-        case constants.EDIT_POST:
-            return state.map((post) => {
-                return post.id === action.id ? {...post, editing: !post.editing} : post
-            })
         case constants.UPDATE:
-            return state.map((post) => {
-                if (post.id === action.id) {
+
+            console.log(state.posts);
+
+            let updateData = state.posts.map((post) => {
+                if (post._id === action.data._id) {
                     return {
-                        ...post,
-                        title: action.data.newTitle,
-                        message: action.data.newMessage,
-                        editing: !post.editing
+                        _id: action.data._id,
+                        title: action.data.title,
+                        description: action.data.description
                     }
                 } else return post;
-            })
+            });
+            return {posts: updateData};
         default:
             return state;
     }

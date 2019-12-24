@@ -1,3 +1,7 @@
+This apps (SPA) is hosted on Heroku. 
+  Frontend (React Redux) : https://arun-api.herokuapp.com/
+  Backend (Express, MongoDB): https://arun-express-api.herokuapp.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

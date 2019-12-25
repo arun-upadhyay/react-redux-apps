@@ -1,4 +1,4 @@
-This apps (SPA) is hosted on Heroku. 
+This apps (SPA) is hosted on Heroku. Todo - full fleged SPA
   Frontend (React Redux) : https://arun-api.herokuapp.com/
   Backend (Express, MongoDB): https://arun-express-api.herokuapp.com/
 

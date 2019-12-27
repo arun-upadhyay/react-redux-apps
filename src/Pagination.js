@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Post from './Post';
+import {addPost, deletePost, getPosts, moveNextPage, movePreviousPage, updatePost} from "./ActionTypes";
 
 class Pagination extends Component {
     constructor(props) {
@@ -10,11 +11,16 @@ class Pagination extends Component {
     }
 
     handlePrevious() {
-
+        let previousCurrentPage = this.props.currentPage - this.props.numberOfPages;
+        if (previousCurrentPage < 0) {
+            previousCurrentPage = 0;
+        }
+      //  this.props.movePreviousPage(previousCurrentPage);
     }
 
     handleNext() {
-
+        let nextCurrentPage = this.props.currentPage + this.props.numberOfPages;
+      //  this.props.moveNextPage(nextCurrentPage);
     }
 
     render() {
@@ -28,7 +34,7 @@ class Pagination extends Component {
                         </div>
                     })
                 }
-                <button onClick={() => this.handlePrevious}>Previous</button>
+                <button onClick={() => this.handlePrevious()}>Previous</button>
                 <button onClick={() => this.handleNext()}>Next</button>
 
             </div>);

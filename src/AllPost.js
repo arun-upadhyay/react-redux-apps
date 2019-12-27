@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Post from './Post';
-import {getPosts, addPost, deletePost, updatePost} from "./ActionTypes";
+import {getPosts, addPost, deletePost, updatePost, movePreviousPage, moveNextPage} from "./ActionTypes";
 import PostForm from "./PostForm";
 import EditComponent from "./EditComponent";
 import Pagination from './Pagination';
@@ -16,9 +16,7 @@ class AllPost extends Component {
         this.editEvent = this.editEvent.bind(this);
         this.state = {
             edit: false,
-            formData: {},
-            currentPage: 1,
-            numberOfPages: 5
+            formData: {}
         }
     }
 
@@ -38,16 +36,21 @@ class AllPost extends Component {
     }
 
     render() {
-        var filteredRecords = [];
-        let currentPage = this.state.currentPage;
-        let totalPage = this.state.numberOfPages;
+        let filteredRecords = [];
+        let currentPage = this.props.currentPage;
+        let totalPage = this.props.numberOfPages;
         for (let index = 1; index < this.props.posts.length; index++) {
             if (index > currentPage && filteredRecords.length < totalPage) {
                 filteredRecords.push(this.props.posts[index]);
             }
         }
 
-        let paginationComponent = <Pagination posts={filteredRecords}/>
+        let paginationComponent = <Pagination posts={filteredRecords} currentPage={currentPage}
+                                              numberOfPages={totalPage}
+                                              // movePreviousPage={this.movePreviousPage}
+                                              // moveNextPage={this.moveNextPage}
+        />
+
         let component = (this.state.edit === true) ?
             <EditComponent post={this.state.formData} handleUpdate={this.handleUpdate}/> :
             <PostForm handleSubmit={this.handleSubmit}/>;
@@ -77,7 +80,14 @@ class AllPost extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        posts: state.posts
+        posts: state.posts,
+        currentPage: state.currentPage,
+        numberOfPages: state.numberOfPages
     }
 }
-export default connect(mapStateToProps, {getPosts, addPost, deletePost, updatePost})(AllPost);
+export default connect(mapStateToProps, {
+    getPosts,
+    addPost,
+    deletePost,
+    updatePost
+})(AllPost);

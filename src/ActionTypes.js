@@ -1,8 +1,8 @@
 export const GET_POST = 'GET_POST'
 export const ADD_POST = 'ADD_POST'
 export const DELETE_POST = 'DELETE_POST'
-export const EDIT_POST = 'EDIT_POST'
 export const UPDATE = 'UPDATE'
+export const PAGING = 'paging'
 const URI = "http://10.0.0.237:3000/posts"
 
 function handleGetPost(data) {
@@ -88,21 +88,22 @@ export function updatePost(postData) {
     };
 }
 
-
-export function createPageIndex(currentPage, totalPage) {
-    let filteredRecords = [];
-    for (let index = 1; index < this.props.posts.length; index++) {
-        // console.log(this.props.posts[index])
-        if (index > currentPage && filteredRecords.length < totalPage) {
-            filteredRecords.push(this.props.posts[index]);
-        }
-    }
-    currentPage += currentPage + totalPage
-    return {
-        currentPage: currentPage,
-        totalPage: totalPage,
-        filterData: filteredRecords
-    }
-
+export function movePreviousPage($currentPage) {
+    return dispatch => {
+        dispatch(handlePaging($currentPage))
+    };
 }
 
+
+function handlePaging(data, currentPage) {
+    return {
+        currentPage,
+        type: GET_POST
+    }
+}
+
+export function moveNextPage($currentPage) {
+    return dispatch => {
+        dispatch(handlePaging($currentPage))
+    }
+}

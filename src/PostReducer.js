@@ -1,7 +1,10 @@
 import * as constants from './ActionTypes';
+import {createPageIndex} from "./ActionTypes";
 
 const initialState = {
-    posts: []
+    posts: [],
+    currentPage: 1,
+    numberOfPages: 5
 };
 const postReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -15,9 +18,6 @@ const postReducer = (state = initialState, action) => {
             });
             return {posts: filterData};
         case constants.UPDATE:
-
-            console.log(state.posts);
-
             let updateData = state.posts.map((post) => {
                 if (post._id === action.data._id) {
                     return {

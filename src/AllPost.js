@@ -4,6 +4,7 @@ import Post from './Post';
 import {getPosts, addPost, deletePost, updatePost} from "./ActionTypes";
 import PostForm from "./PostForm";
 import EditComponent from "./EditComponent";
+import Pagination from './Pagination';
 
 
 class AllPost extends Component {
@@ -15,7 +16,9 @@ class AllPost extends Component {
         this.editEvent = this.editEvent.bind(this);
         this.state = {
             edit: false,
-            formData: {}
+            formData: {},
+            currentPage: 1,
+            numberOfPages: 5
         }
     }
 
@@ -35,30 +38,23 @@ class AllPost extends Component {
     }
 
     render() {
+        var filteredRecords = [];
+        let currentPage = this.state.currentPage;
+        let totalPage = this.state.numberOfPages;
+        for (let index = 1; index < this.props.posts.length; index++) {
+            if (index > currentPage && filteredRecords.length < totalPage) {
+                filteredRecords.push(this.props.posts[index]);
+            }
+        }
+
+        let paginationComponent = <Pagination posts={filteredRecords}/>
         let component = (this.state.edit === true) ?
             <EditComponent post={this.state.formData} handleUpdate={this.handleUpdate}/> :
             <PostForm handleSubmit={this.handleSubmit}/>;
         return (
             <div>
                 {component}
-                <h1>All Posts</h1>
-                {this.props.posts.map((post) => (
-                    <div key={post._id}>
-                        <Post key={post._id} post={post}/>
-                        <button
-                            onClick={() => {
-                                this.deletePost(post._id)
-                            }}>
-                            Delete
-                        </button>
-                        <button
-                            onClick={() => {
-                                this.editEvent(post._id, post.title, post.description)
-                            }}>
-                            Edit
-                        </button>
-                    </div>
-                ))}
+                {paginationComponent}
             </div>
         );
     }

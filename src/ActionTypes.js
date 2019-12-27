@@ -87,3 +87,22 @@ export function updatePost(postData) {
             }).catch(err => dispatch(err));
     };
 }
+
+
+export function createPageIndex(currentPage, totalPage) {
+    let filteredRecords = [];
+    for (let index = 1; index < this.props.posts.length; index++) {
+        // console.log(this.props.posts[index])
+        if (index > currentPage && filteredRecords.length < totalPage) {
+            filteredRecords.push(this.props.posts[index]);
+        }
+    }
+    currentPage += currentPage + totalPage
+    return {
+        currentPage: currentPage,
+        totalPage: totalPage,
+        filterData: filteredRecords
+    }
+
+}
+

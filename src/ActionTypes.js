@@ -3,7 +3,7 @@ export const ADD_POST = 'ADD_POST'
 export const DELETE_POST = 'DELETE_POST'
 export const UPDATE = 'UPDATE'
 export const PAGING = 'PAGING'
-const URI = "http://10.0.0.237:3000/posts"
+const URI = "https://arun-express-api.herokuapp.com/posts"
 
 function handleGetPost(data) {
     return {

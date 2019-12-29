@@ -2,7 +2,7 @@ import * as constants from './ActionTypes';
 
 const initialState = {
     posts: [],
-    currentPage: 1,
+    currentPage: 0,
     numberOfPages: 3
 };
 const returnData = (posts, currentPage, totalPage) => {

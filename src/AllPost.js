@@ -50,20 +50,17 @@ class AllPost extends Component {
         let filteredRecords = [];
         let currentPage = this.props.currentPage;
         let totalPage = this.props.numberOfPages;
-        for (let index = 1; index < this.props.posts.length; index++) {
-            if (index > currentPage && filteredRecords.length < totalPage) {
+
+        for (let index = 0; index < this.props.posts.length; index++) {
+            if (index >= currentPage && filteredRecords.length < totalPage) {
                 filteredRecords.push(this.props.posts[index]);
             }
         }
-
         let component = (this.state.edit === true) ?
             <EditComponent post={this.state.formData} handleUpdate={this.handleUpdate}/> :
             <PostForm handleSubmit={this.handleSubmit}/>;
         return (
             <div>
-                <div className="jumbotron text-left">
-                    <h1>Simple CRUD Operation using React-JS, Redux and Express API</h1>
-                </div>
                 {component}
                 {filteredRecords.map((post) => (
                     <div key={post._id}>

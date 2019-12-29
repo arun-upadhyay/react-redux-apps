@@ -19,7 +19,7 @@ class PostForm extends Component {
     render() {
         return (
             <div>
-                <h1 class="text-muted"> Add Post</h1>
+                <h1 className="text-muted"> Add Post</h1>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group controlId="exampleForm.ControlInput1">
                         <Form.Label>Add Title</Form.Label>
